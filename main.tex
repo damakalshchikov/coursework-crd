@@ -1,0 +1,165 @@
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref}
+
+% Шрифт всего документа - 12pt. Тип документа - статья
+\documentclass[12pt]{article}
+
+% Параметры документа (дисциплина, тема, преподаватель и т.п.)
+% Загружаем первым, чтобы флаги из config.tex были доступны в преамбуле
+\input{config}
+\input{macros}
+
+% ==========================================
+% ШРИФТЫ И ЯЗЫКИ
+% ==========================================
+
+% Управление шрифтами
+\usepackage{fontspec}
+% Основной шрифт документа (задаётся в config.tex)
+\setmainfont{\mainfont}
+
+% Моноширинный шрифт (для листингов кода, задаётся в config.tex)
+\setmonofont{\monofont}
+
+% Поддержка многоязычных документов (русский + английский)
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+% ==========================================
+% МАТЕМАТИКА
+% ==========================================
+
+% Расширенные математические формулы и окружения
+\usepackage{amsmath}
+
+% Запятая как разделитель дробной части (вместо точки)
+\usepackage{icomma}
+
+% ==========================================
+% ТАБЛИЦЫ
+% ==========================================
+
+% Расширенные типы столбцов (m{}, b{}, >{}, <{} и др.)
+\usepackage{array}
+
+% Профессиональное оформление линий (\toprule, \midrule, \bottomrule)
+\usepackage{booktabs}
+
+% ==========================================
+% ГРАФИКА И ЦВЕТА
+% ==========================================
+
+% Вставка и масштабирование изображений
+\usepackage{graphicx}
+% Путь к изображениям
+\graphicspath{{./images/}{./figures/}}
+
+% Подрисунки (несколько изображений в одном окружении figure)
+\usepackage{subcaption}
+
+% Точное позиционирование плавающих объектов (спецификатор H)
+\usepackage{float}
+
+% Поддержка цветов
+\usepackage{xcolor}
+
+% ==========================================
+% НАСТРОЙКА СТРАНИЦЫ
+% ==========================================
+
+% Настройка полей документа
+\usepackage[a4paper, margin=2cm]{geometry}
+
+% Настройка ориентаций страниц
+\usepackage{pdflscape}
+
+% ==========================================
+% PDF И ССЫЛКИ
+% ==========================================
+
+% Кликабельные ссылки в PDF
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+
+% Улучшенное управление закладками PDF
+\usepackage{bookmark}
+
+% ==========================================
+% СОДЕРЖАНИЕ
+% ==========================================
+
+% Настройка отображения содержания (точки между заголовком и номером страницы)
+\usepackage{tocloft}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+% ==========================================
+% ОПЦИОНАЛЬНЫЕ ПАКЕТЫ
+% Управляются флагами в config.tex
+% ==========================================
+
+% Библиография в стиле ГОСТ (флаг \bibtrue)
+\ifbib
+    \usepackage[backend=biber, style=gost-numeric, language=autobib, autolang=other]{biblatex}
+    \addbibresource{references.bib}
+\fi
+
+% Графики функций (флаг \plotstrue)
+\ifplots
+    \usepackage{pgfplots}
+    \pgfplotsset{compat=1.18}
+    \pgfplotsset{/pgf/number format/use comma}
+\fi
+
+% Схемы и диаграммы (флаг \tikztrue)
+\iftikz
+    \usepackage{tikz}
+    \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
+\fi
+
+% Листинги кода с подсветкой синтаксиса (флаг \listingtrue)
+\iflisting
+    \usepackage{minted}
+    \setminted{
+        fontsize=\small,
+        linenos=true,
+        breaklines=true,
+        frame=single
+    }
+\fi
+
+% Начало документа
+\begin{document}
+
+    % Отключает нумерацию страниц в титульном листе и в содержании
+    \pagenumbering{gobble}
+
+    % Титульная страница
+    \input{pages/titlepage}
+
+    % Содержание
+    \begin{center}
+        \tableofcontents
+    \end{center}
+
+    % Новая страница
+    \newpage
+
+    % Нумерация с 3-его номера
+    \pagenumbering{arabic}
+    \setcounter{page}{3}
+
+    % ==========================================
+    % СОДЕРЖАНИЕ ОТЧЁТА
+    % ==========================================
+
+    \unnsection{Начало отчёта}
+
+    \input{chapters/chapter1}
+
+    % Список литературы (управляется флагом \ifbib в config.tex)
+    \ifbib
+        \input{pages/bibliography}
+    \fi
+
+% Конец документа
+\end{document}
