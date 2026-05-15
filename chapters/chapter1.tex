@@ -23,6 +23,11 @@
 
     \unnsubsection{Зарождение теории диффузии}
 
+        \begin{wrapfigure}{r}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, keepaspectratio]{portraits/fourier}
+            \caption*{\footnotesize Ж. Фурье\\ \scriptsize (1768--1830)}
+        \end{wrapfigure}
         Математическая теория диффузии сложилась на пересечении двух традиций ---
         экспериментальной физики газов и аналитической теории теплопроводности.
         Первую строгую математическую теорию теплопроводности создал Жозеф Фурье:
@@ -43,6 +48,11 @@
         он убедительно продемонстрировал,
         что диффузия подчиняется строгим количественным закономерностям.
 
+        \begin{wrapfigure}{l}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, keepaspectratio]{portraits/fick}
+            \caption*{\footnotesize А. Фик\\ \scriptsize (1829--1901)}
+        \end{wrapfigure}
         Решающий шаг сделал Адольф Фик.
         В 1855 году в <<Annalen der Physik>>~\cite{fick1855} он сформулировал два закона
         диффузии по аналогии с законом Фурье для теплового потока.
@@ -85,6 +95,11 @@
 
     \unnsubsection{Химическая кинетика и реакционное слагаемое}
 
+        \begin{wrapfigure}{r}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, keepaspectratio]{portraits/arrhenius}
+            \caption*{\footnotesize С. Аррениус\\ \scriptsize (1859--1927)}
+        \end{wrapfigure}
         Второй фундаментальный компонент уравнения --- реакционное слагаемое $R(c)$ ---
         вырос из химической кинетики, которая к середине XIX века превратилась
         в самостоятельную количественную науку.
@@ -121,7 +136,8 @@
         напрямую объединив закон Аррениуса с уравнениями теплопроводности и диффузии.
         Именно в этих работах реакционное слагаемое вида $R(c, T) = A\,c^n \exp(-E_a/RT)$
         органично вошло в уравнение переноса.
-
+    
+    \newpage
     \unnsubsection{Уравнение Колмогорова--Петровского--Пискунова}
 
         К 1937 году уравнение диффузии Фика и реакционный член
@@ -142,6 +158,11 @@
         Фишер показал существование бегущих волн и оценил их скорость,
         однако строгих доказательств не привёл.
 
+        \begin{wrapfigure}{l}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, keepaspectratio]{portraits/kolmogorov}
+            \caption*{\footnotesize А. Н. Колмогоров\\ \scriptsize (1903--1987)}
+        \end{wrapfigure}
         Полный математический анализ дали Андрей Николаевич Колмогоров,
         Иван Георгиевич Петровский и Николай Семёнович Пискунов
         в знаменитой работе 1937 года~\cite{kpp1937}.
@@ -172,6 +193,11 @@
 
     \unnsubsection{Рождение полного уравнения}
 
+        \begin{wrapfigure}{r}{3.5cm}
+            \centering
+            \includegraphics[width=3.2cm, height=3.5cm, keepaspectratio]{portraits/kamenechiy}
+            \caption*{\footnotesize Д. Франк-Каменецкий\\ \scriptsize (1910--1970)}
+        \end{wrapfigure}
         Уравнение КПП объединило диффузию с реакцией, однако конвективное слагаемое
         в нём отсутствовало.
         Полная <<триада>> --- конвекция, диффузия и реакция ---
@@ -187,19 +213,28 @@
 
         Решающий синтез всех трёх механизмов осуществили Яков Борисович Зельдович
         и Давид Альбертович Франк-Каменецкий.
+        
         В своей теории ламинарного пламени~\cite{zeldovich1944} они рассмотрели
         стационарное распространение плоского фронта горения
         и записали связанную систему для температуры $T$ и концентрации реагента $a$:
         \[
-            \rho u c_p \frac{dT}{dx}
-            = \frac{d}{dx}\!\left(\lambda\,\frac{dT}{dx}\right)
-            + Q\,W(a, T),
+            \left\{
+            \begin{aligned}
+                \rho u c_p \frac{dT}{dx}
+                &= \frac{d}{dx}\!\left(\lambda\,\frac{dT}{dx}\right)
+                + Q\,W(a, T), \\[6pt]
+                \rho u\,\frac{da}{dx}
+                &= \frac{d}{dx}\!\left(\rho D\,\frac{da}{dx}\right)
+                - W(a, T).
+            \end{aligned}
+            \right.
         \]
-        \[
-            \rho u\,\frac{da}{dx}
-            = \frac{d}{dx}\!\left(\rho D\,\frac{da}{dx}\right)
-            - W(a, T).
-        \]
+        
+        \begin{wrapfigure}{l}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, height=3.5cm, keepaspectratio]{portraits/zeldovich}
+            \caption*{\footnotesize Я. Б. Зельдович\\ \scriptsize (1914--1987)}
+        \end{wrapfigure}
         В каждом из приведённых уравнений отчётливо видны все три слагаемых:
         \textit{конвективное} ($\rho u \, d/dx$),
         \textit{диффузионное} ($d/dx(\cdot \, d/dx)$, с молекулярной
@@ -247,6 +282,11 @@
         В ней конвективное слагаемое порождается не механическим потоком среды,
         а электрическим полем, однако математическая структура остаётся той же.
 
+        \begin{wrapfigure}{r}{3cm}
+            \centering
+            \includegraphics[width=2.5cm, keepaspectratio]{portraits/turing}
+            \caption*{\footnotesize А. Тьюринг\\ \scriptsize (1912--1954)}
+        \end{wrapfigure}
         \textbf{Морфогенез и биологические паттерны.}
         Алан Тьюринг в 1952 году~\cite{turing1952} показал, что система
         двух уравнений вида <<диффузия--реакция>> (без конвекции)
