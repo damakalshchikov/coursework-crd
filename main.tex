@@ -79,6 +79,27 @@
 % Настройка ориентаций страниц
 \usepackage{pdflscape}
 
+% Кастомизация колонтитулов
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+% Основной стиль страниц: название раздела сверху курсивом, горизонтальная черта под ним и номер страницы внизу по центру
+\fancypagestyle{main}{
+    \fancyhf{}                                              % очистить все поля
+    \fancyhead[L]{\textit{\nouppercase{\leftmark}}}         % раздел в шапке
+    \fancyfoot[C]{\thepage}                                 % номер страницы
+    \renewcommand{\headrulewidth}{0.6pt}                    % линия под шапкой
+    \renewcommand{\footrulewidth}{0pt}                      % без линии в футере
+}
+
+% Стиль страницы, на которой начинается новый раздел: шапки и черты нет
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
 % ==========================================
 % PDF И ССЫЛКИ
 % ==========================================
@@ -142,10 +163,11 @@
     % Титульная страница
     \input{pages/titlepage}
 
-    % Содержание
+    % Содержание (без верхнего колонтитула и номера страницы)
     \begin{center}
         \tableofcontents
     \end{center}
+    \thispagestyle{empty}
 
     % Новая страница
     \newpage
@@ -153,6 +175,9 @@
     % Нумерация с 3-его номера
     \pagenumbering{arabic}
     \setcounter{page}{3}
+
+    % Включаем кастомный стиль колонтитулов для содержания
+    \pagestyle{main}
 
     % ==========================================
     % СОДЕРЖАНИЕ ОТЧЁТА
