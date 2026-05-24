@@ -4,6 +4,7 @@
 
 % Секция без нумерации
 \newcommand{\unnsection}[1]{
+    \clearpage
     \section*{#1}
     \addcontentsline{toc}{section}{#1}
     % Обновляем колонтитул вручную: \section* не вызывает \markboth
