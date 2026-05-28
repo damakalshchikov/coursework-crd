@@ -130,7 +130,7 @@ ax2.legend()
 ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig("figures/crd_solution.png", dpi=150, bbox_inches="tight")
+plt.savefig("images/crd_solution.png", dpi=150, bbox_inches="tight")
 plt.show()
 
 # Таблица максимальных абсолютных погрешностей

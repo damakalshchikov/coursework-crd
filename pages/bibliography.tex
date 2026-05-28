@@ -1,15 +1,19 @@
 % Страница со списком литературы
 \cleardoublepage
 
+% Переключаем стиль на empty: нет шапки и нет номера страницы
+\pagestyle{empty}
+
 % Делаем так, чтобы библиография появлялась независимо от ссылок
 \nocite{*}
+
+% Компактная верстка библиографии
+\renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{2pt plus 1pt minus 1pt}
+\setlength{\bibparsep}{0pt}
+\setlength{\bibhang}{1.5em}
 
 % Выводим библиографию по центру
 \begin{center}
     \printbibliography[heading=bibintoc, title={Список литературы}]
 \end{center}
-
-% Отключаем нумерацию страницы
-\thispagestyle{empty}
-
-\cleardoublepage
