@@ -111,3 +111,4 @@ _minted*
 
 # Other
 .DS_Store
+.venv
